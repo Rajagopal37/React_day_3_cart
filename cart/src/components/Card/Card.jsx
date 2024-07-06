@@ -87,6 +87,8 @@ const App = () => {
       <section className="py-5">
         <div className="container px-4 px-lg-5 mt-5">
           <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+
             {products.map((product) => (
               <div className="col mb-5" key={product.id}>
                 <div className="card h-100">
@@ -96,7 +98,6 @@ const App = () => {
                     <div className="text-center">
                       <h5 className="fw-bolder">{product.name}</h5>
                       <div>{product.description}</div>
-                      
                        {['Special Item','Popular Item'].includes(product.name) && (
                             <div>
                                 <FontAwesomeIcon icon={faStar} className="text-warning" />
@@ -106,22 +107,30 @@ const App = () => {
                                 <FontAwesomeIcon icon={faStar} className="text-warning" />
                             </div>
                        ) }
-                      
                       <div>{product.price}</div>
                     </div>
                   </div>
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
                     <div className="text-center">
+
                       {isInCart(product) ? (
-                        <button className="btn btn-outline-dark mt-auto" onClick={() => removeFromCart(product)}>Remove from cart</button>
-                      ) : (
-                        <button className="btn btn-outline-dark mt-auto" onClick={() => addToCart(product)}>Add to cart</button>
-                      )}
+                                            <button className="btn btn-outline-dark mt-auto" 
+                                                    onClick={() => removeFromCart(product)}>    Remove from cart
+                                            </button>
+                                        ) : (
+                                            <button className="btn btn-outline-dark mt-auto" 
+                                                    onClick={() => addToCart(product)}>         Add to cart
+                                            </button>
+                         )}
+
                     </div>
                   </div>
                 </div>
               </div>
             ))}
+
+
+            
           </div>
         </div>
       </section>
@@ -133,29 +142,44 @@ const App = () => {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Cart</h5>
-                <button type="button" className="btn-close" onClick={() => setShowCart(false)}></button>
+
+                <button type="button" 
+                        className="btn-close" 
+                        onClick={() => setShowCart(false)}>
+                </button>
+
               </div>
               <div className="modal-body">
-                {cart.length === 0 ? (
-                  <p>Your cart is empty</p>
-                ) : (
+
+                {cart.length === 0 ? ( <p>Your cart is empty</p> ) : (
                   <ul className="list-group">
+
                     {cart.map((item) => (
                       <li key={item.id} className="list-group-item d-flex justify-content-between align-items-center">
                         {item.name}
-                        <button className="btn btn-outline-dark btn-sm" onClick={() => removeFromCart(item)}>Remove</button>
+                        <button className="btn btn-outline-dark btn-sm"     
+                                onClick={() => removeFromCart(item)}>       Remove
+                        </button>
                       </li>
                     ))}
+
                   </ul>
                 )}
               </div>
+
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => setShowCart(false)}>Close</button>
+                <button type="button" 
+                        className="btn btn-secondary" 
+                        onClick={() => setShowCart(false)}> Close
+                </button>
               </div>
+
             </div>
           </div>
         </div>
       )}
+
+
 
       <footer className="py-5 bg-dark">
         <div className="container"><p className="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
