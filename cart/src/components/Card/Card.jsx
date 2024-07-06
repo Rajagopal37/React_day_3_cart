@@ -5,18 +5,20 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
 
-                        const [cart, setCart] = useState([]);
-                        const [showCart, setShowCart] = useState(false);
+                        const [cart, setCart] = useState([]);                
+                        const [showCart, setShowCart] = useState(false);    
 
+
+                        // All products put in the array
                         const products = [
-                            { id: 1, name: 'Fancy Product', price: 'Rs.2,40,999', description: 'This is a fancy product', image:'images/fan_1.jpg' },
-                            { id: 2, name: 'Special Item', price: 'Rs.97,78,895', description: 'This is a special item', sale: true,image:'images/spl_1.jpg' },
-                            { id: 3, name: 'Sale Item', price: 'Rs.1,57,860', description: 'This is a sale item', sale: true, image:'images/sale_1.jpg' },
-                            { id: 4, name: 'Popular Item', price: 'Rs.14,78,521', description: 'This is a popular item', image:'images/pplr_1.jpg' },
-                            { id: 5, name: 'Sale Item', price: 'Rs. 1,53,899', description: 'This is a sale item', sale: true, image:'images/sale_2.jpg' },
-                            { id: 6, name: 'Fancy Product', price: 'Rs. 2,17,999', description: 'This is a fancy product', image:'images/fan_2.jpg' },
-                            { id: 7, name: 'Special Item', price: 'Rs. 77,89,999', description: 'This is a special item', sale: true, image:'images/spl_2.jpg' },
-                            { id: 8, name: 'Popular Item', price: 'Rs. 15,08,758', description: 'This is a popular item', image:'images/pplr_2.jpg' },
+                            { id: 1, name: 'Fancy Product', price: 'Rs.2,40,999',  image:'images/fan_1.jpg' },
+                            { id: 2, name: 'Special Item', price: 'Rs.97,78,895', sale: true,image:'images/spl_1.jpg' },
+                            { id: 3, name: 'Sale Item', price: 'Rs.1,57,860',  sale: true, image:'images/sale_1.jpg' },
+                            { id: 4, name: 'Popular Item', price: 'Rs.14,78,521',  image:'images/pplr_1.jpg' },
+                            { id: 6, name: 'Fancy Product', price: 'Rs. 2,17,999',  image:'images/fan_2.jpg' },
+                            { id: 7, name: 'Special Item', price: 'Rs. 77,89,999', sale: true, image:'images/spl_2.jpg' },
+                            { id: 5, name: 'Sale Item', price: 'Rs. 1,53,899',  sale: true, image:'images/sale_2.jpg' },
+                            { id: 8, name: 'Popular Item', price: 'Rs. 15,08,758',  image:'images/pplr_2.jpg' },
                         ];
 
                         const addToCart = (product) => {
@@ -58,10 +60,13 @@ const App = () => {
 
             {/* Cart Section */}
             <form className="d-flex">
+
               <button className="btn btn-outline-dark" type="button" onClick={() => setShowCart(true)}>
-                <i className="bi-cart-fill me-1"></i>
-                Cart
+
+                <i className="bi-cart-fill me-1"></i> Cart
+                
                 <span className="badge bg-dark text-white ms-1 rounded-pill">{cart.length}</span>
+
               </button>
             </form>
           </div>
@@ -90,7 +95,8 @@ const App = () => {
                   <div className="card-body p-4">
                     <div className="text-center">
                       <h5 className="fw-bolder">{product.name}</h5>
-                      {/* <div>{product.description}</div> */}
+                      <div>{product.description}</div>
+                      
                        {['Special Item','Popular Item'].includes(product.name) && (
                             <div>
                                 <FontAwesomeIcon icon={faStar} className="text-warning" />
