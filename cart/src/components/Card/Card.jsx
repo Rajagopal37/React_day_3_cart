@@ -80,6 +80,8 @@ const App = () => {
         </div>
       </nav>
 
+      
+
         {/* header */}
       <header className="bg-dark py-5">
         <div className="container px-4 px-lg-5 my-5">
@@ -89,6 +91,8 @@ const App = () => {
           </div>
         </div>
       </header>
+
+
 
         {/* Cart section */}
       <section className="py-5">
@@ -128,7 +132,7 @@ const App = () => {
 
                             </div>
                         </div>
-                        
+
                         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div className="text-center">
 
