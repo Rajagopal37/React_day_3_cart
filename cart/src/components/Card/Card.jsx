@@ -61,14 +61,21 @@ const App = () => {
             {/* Cart Section */}
             <form className="d-flex">
 
-              <button className="btn btn-outline-dark" type="button" onClick={() => setShowCart(true)}>
+                <button className="btn btn-outline-dark" 
+                        type="button" 
+                        onClick={() => setShowCart(true)}>
 
-                <i className="bi-cart-fill me-1"></i> Cart
+                            <i className="bi-cart-fill me-1"></i> Cart
                 
-                <span className="badge bg-dark text-white ms-1 rounded-pill">{cart.length}</span>
+                            <span className="badge bg-dark text-white ms-1 rounded-pill">
+                                        {cart.length}
+                            </span>
 
-              </button>
+                </button>
+
             </form>
+
+            
           </div>
         </div>
       </nav>
@@ -89,48 +96,60 @@ const App = () => {
           <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
 
-            {products.map((product) => (
-              <div className="col mb-5" key={product.id}>
-                <div className="card h-100">
-                  {product.sale && <div className="badge bg-dark text-white position-absolute" style={{ top: '0.5rem', right: '0.5rem' }}>Sale</div>}
-                  <img className="card-img-top" src={product.image} alt={product.name} />
-                  <div className="card-body p-4">
-                    <div className="text-center">
-                      <h5 className="fw-bolder">{product.name}</h5>
-                      <div>{product.description}</div>
-                       {['Special Item','Popular Item'].includes(product.name) && (
-                            <div>
-                                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                                <FontAwesomeIcon icon={faStar} className="text-warning" />
-                                <FontAwesomeIcon icon={faStar} className="text-warning" />
+            {products.map(
+                (product) => (
+                    <div className="col mb-5" key={product.id}>
+                        <div className="card h-100">
+
+                            { product.sale && <div className="badge bg-dark text-white position-absolute" 
+                                                    style={{ top: '0.5rem', right: '0.5rem' }}>      Sale   
+                                              </div>}
+
+                        <img className="card-img-top" src={product.image} alt={product.name} />
+
+                        <div className="card-body p-4">
+                            <div className="text-center">
+
+                                <h5 className="fw-bolder">{product.name}</h5>
+
+                                <div>{product.description}</div>
+
+                                {['Special Item','Popular Item'].includes(product.name) && (
+                                        <div>
+                                            <FontAwesomeIcon icon={faStar} className="text-warning" />
+                                            <FontAwesomeIcon icon={faStar} className="text-warning" />
+                                            <FontAwesomeIcon icon={faStar} className="text-warning" />
+                                            <FontAwesomeIcon icon={faStar} className="text-warning" />
+                                            <FontAwesomeIcon icon={faStar} className="text-warning" />
+                                        </div>
+                                ) }
+
+                                 <div>{product.price}</div>
+
                             </div>
-                       ) }
-                      <div>{product.price}</div>
-                    </div>
-                  </div>
-                  <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div className="text-center">
+                        </div>
+                        
+                        <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div className="text-center">
 
-                      {isInCart(product) ? (
-                                            <button className="btn btn-outline-dark mt-auto" 
-                                                    onClick={() => removeFromCart(product)}>    Remove from cart
-                                            </button>
-                                        ) : (
-                                            <button className="btn btn-outline-dark mt-auto" 
-                                                    onClick={() => addToCart(product)}>         Add to cart
-                                            </button>
-                         )}
+                            {isInCart(product) ? (
+                                                    <button className="btn btn-outline-dark mt-auto" 
+                                                            onClick={() => removeFromCart(product)}>    Remove from cart
+                                                    </button>
+                                                ) : (
+                                                    <button className="btn btn-outline-dark mt-auto" 
+                                                            onClick={() => addToCart(product)}>         Add to cart
+                                                    </button>
+                                )}
 
+                            </div>
+                        </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-              </div>
             ))}
 
 
-            
+
           </div>
         </div>
       </section>
